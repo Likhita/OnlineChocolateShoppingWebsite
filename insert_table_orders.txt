@@ -1,0 +1,10 @@
+use jadrn052;
+
+drop table if exists orders;
+
+
+create table orders(
+    today date NOT NULL,
+    sku varchar(25) NOT NULL,
+    quantity integer NOT NULL);
+    

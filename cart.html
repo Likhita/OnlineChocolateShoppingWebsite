@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!--    Likhita, Gonchikara    Account:  jadrn052
+        CS545, Fall 2012
+        Project #4
+-->   
+<head>
+	<title>Bertha's Deluxe Chocolates</title>
+	<meta http-equiv="content-type" 
+		content="text/html;charset=utf-8" />
+
+	<script type="text/javascript" src="/jquery/jquery.js"></script>
+        
+    <script type="text/javascript" src="ajax_get_lib.js"></script>    
+    <script type="text/javascript" src="m_dialog.js"></script>
+	<script type="text/javascript" src="order_form.js"></script>
+	<script type="text/javascript" src="/~jadrn052/proj4/jquery-ui-1.9.2.custom/js/jquery-1.8.3.js"></script>  
+    <script type="text/javascript" src="/~jadrn052/proj4/jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.min.js"></script>  
+											
+    <link rel="stylesheet" type="text/css" href="/~jadrn052/proj4/jquery-ui-1.9.2.custom/css/custom-theme/jquery-ui-1.9.2.custom.min.css" />    
+    <link rel="stylesheet" type="text/css" href="m_dialog.css" />  	
+	<link rel="stylesheet" type="text/css" href="proj4.css" />
+	<link href='http://fonts.googleapis.com/css?family=Headland+One|Oxygen+Mono|Griffy|Jacques+Francois+Shadow' rel='stylesheet' type='text/css'/>
+
+</head>
+
+<body class="ui-widget-content">
+	<div class="ui-widget-header">
+		<h1>Bertha's Deluxe Chocolates</h1><br /><br /><br />
+		
+	</div> 
+	
+<div>
+	<div id="menus">
+			<ul>
+				<li><a href="proj4.html">Home</a></li>
+				<li><a href="products.html">Products</a></li>
+				<li><a href="order.html">Order Online</a></li>
+				<li><a href="about.html">About us</a></li>
+				<li><a href="contact.html">Contact us</a></li>
+			</ul>
+	</div> 
+	<!-- The order form is not visible until the Order Now button is clicked -->
+<div id="dialog-modal"  class="widget-dialog-container" title="Complete Your Order">
+	<form method="post" action="/perl/jadrn052/db_insert.cgi">    
+	<fieldset>
+		<legend>Billing address :</legend>
+	<table>	
+        <tr>		
+			<td><label for="fname">First Name:</label></td>
+			<td colspan="2"><input type="text" name="fname" id="fname" size="20"  /></td>
+			<td><label for="lname">Last Name:</label></td>
+			<td colspan="2"><input type="text" name="lname" id="lname" size="20"  /></td>                    
+		</tr>
+		<tr>		
+			<td><label for="address1">Address:</label></td>
+			<td colspan="5"><input type="text" name="address1" id="address1" size="50" /></td>
+		</tr> 
+		<tr>		
+			<td><label for="address2">Address:</label></td>
+			<td colspan="5"><input type="text" name="address2" id="address2" size="50" /></td>
+		</tr>                  
+		<tr>		
+			<td><label for="city">City:</label></td>
+			<td><input type="text" name="city" id="city" size="15" /></td>
+			<td><label for="state">State:</label></td>
+			<td><input type="text" name="state" id="state" size="5" /></td>
+			<td><label for="zip">Zipcode:</label></td>
+			<td><input type="text" name="zip" id="zip" size="10" /></td>                                        
+		</tr>  
+		<tr>
+			<td>Phone:</td>
+            <td colspan="5">(<input type="text" name="area_phone" id="phone" size="3" maxlength="3" />)  
+                 <input type="text" name="prefix_phone" size="3" maxlength="3" /> -
+                <input type="text" name="phone" size="4" maxlength="4" /></td>
+		</tr> 
+		</table>  
+		</fieldset>
+		<fieldset>
+		<legend>Shipping address:</legend>
+		<table>
+        <tr>
+			<td colspan="5"><input type="checkbox" name="camp[]" value="same" />Check this box if shipping address same as billing<br /></td>
+		</tr>	
+		<tr>	
+			<td><label for="sfname">First Name:</label></td>
+			<td colspan="2"><input type="text" name="sfname" id="sfname" size="20"  /></td>
+			<td><label for="slname">Last Name:</label></td>
+			<td colspan="2"><input type="text" name="slname" id="slname" size="20"  /></td>                    
+		</tr>
+		<tr>		
+			<td><label for="saddress1">Address:</label></td>
+			<td colspan="5"><input type="text" name="saddress1" id="saddress1" size="50" /></td>
+		</tr> 
+		<tr>		
+			<td><label for="saddress2">Address:</label></td>
+			<td colspan="5"><input type="text" name="saddress2" id="saddress2" size="50" /></td>
+		</tr>                  
+		<tr>		
+			<td><label for="scity">City:</label></td>
+			<td><input type="text" name="scity" id="scity" size="15" /></td>
+			<td><label for="sstate">State:</label></td>
+			<td><input type="text" name="sstate" id="sstate" size="5" /></td>
+			<td><label for="szip">Zip:</label></td>
+			<td><input type="text" name="szip" id="szip" size="10" /></td>                                        
+		</tr>  
+		<tr>
+			<td><label for="sphone">Phone:</label></td>
+            <td colspan="5">(<input type="text" name="sarea_phone" id="sphone" size="3" maxlength="3" />)  
+                 <input type="text" name="sprefix_phone" size="3" maxlength="3" /> -
+                <input type="text" name="sphone" size="4" maxlength="4" /></td>
+		</tr> 
+		</table>  
+	</fieldset>
+		<fieldset>
+		<legend>Payment information:</legend>
+		<table> 
+		<tr>
+			<td><label for="pay">Payment Type:</label></td>
+            <td colspan="5" ><input type="radio" name="pay" value="visa" id="pay"/>Visa
+				<input type="radio" name="pay" value="mastercard" id="pay"/>Mastercard
+				<input type="radio" name="pay" value="american" id="pay"/>American Express</td>	
+		</tr>		
+		<tr>
+            <td><label for="card">Card Number</label></td>
+            <td><input type="text" name="card" size="16" /></td>
+        </tr>
+		<tr>
+            <td><label for="exp_date">Expiration Date:</label></td>
+            <td><input type="text" name="exp_date" size="10" /></td>
+        </tr>
+        <tr>
+            <td id="message_line" colspan="5">&nbsp;</td>
+        </tr>         
+        <tr>
+            <td><input type="reset" class="ui-button" value="Reset"/></td>
+            <td><input type="submit" class="ui-button" value="Submit Order"/></td>
+        </tr>       
+    </table> 
+	</fieldset>
+	</form>  	
+</div>	
+	<div id="order">
+	<p> Order now !</p>
+	<input type="button" value="Order Now" class="order_button" />
+	</div>
+	</div>
+</body>
+</html>	

@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<!--    Likhita, Gonchikara    Account:  jadrn052
+        CS545, Fall 2012
+        Project #4
+-->   
+<head>
+	<title>Bertha's Deluxe Chocolates</title>
+	<meta http-equiv="content-type" 
+		content="text/html;charset=utf-8" />
+
+	<script type="text/javascript" src="/jquery/jquery.js"></script>
+	<script type="text/javascript" src="ajax_get_lib.js"></script>
+    <script type="text/javascript" src="m_dialog.js"></script>
+	<script type="text/javascript" src="order_form.js"></script>
+	<script type="text/javascript" src="/~jadrn052/proj4/jquery-ui-1.9.2.custom/js/jquery-1.8.3.js"></script>  
+    <script type="text/javascript" src="/~jadrn052/proj4/jquery-ui-1.9.2.custom/js/jquery-ui-1.9.2.custom.min.js"></script>  
+											
+    <link rel="stylesheet" type="text/css" href="/~jadrn052/proj4/jquery-ui-1.9.2.custom/css/custom-theme/jquery-ui-1.9.2.custom.min.css" />    
+    <link rel="stylesheet" type="text/css" href="m_dialog.css" />  	
+	<link rel="stylesheet" type="text/css" href="proj4.css" />
+	<link rel="stylesheet" type="text/css" href="animation.css" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+	<link href='http://fonts.googleapis.com/css?family=Headland+One|Oxygen+Mono|Griffy|Jacques+Francois+Shadow' rel='stylesheet' type='text/css'/>
+
+</head>
+
+<body class="ui-widget-content">
+	<div class="ui-widget-header">
+		<h1>Bertha's Deluxe Chocolates</h1><br /><br />
+		
+	</div> 
+	
+	
+<div id="dialog-modal-cart"  class="widget-dialog-container" title="Add to cart">
+<h1> Hello</h1>
+</div>	
+
+<div>
+	<div id="menus">
+			<ul>
+				<li><a href="#home" >Home</a></li>
+				<li><a href="#products_all">Products</a></li>
+				<li><a href="#cart" id="cart_contains">My cart ()</a></li>
+				<li><a href="#about">About us</a></li>
+				<li><a href="#contact">Contact us</a></li>
+			</ul>	
+				
+	<div id="home">
+	<h3>Savor the holidays with our new flavors.</h3> 
+	<h3>Our chocolates will inspire your holiday celebrations !</h3>
+	<div>
+	<div id="content-slider">
+    	<div id="slider">
+        	<div id="mask">
+            <ul>
+           	<li id="first" class="firstanimation">
+            <a href="#">
+            <img src="images/choco5.jpg" alt="Caramel Classic" height="320px"/>
+            </a>
+            <div class="tooltip">
+            <h1>Caramel Classic</h1>
+            </div>
+            </li>
+
+            <li id="second" class="secondanimation">
+            <a href="#">
+            <img src="images/choco4.jpg" alt="Pure Moonlight" height="320px"/>
+            </a>
+            <div class="tooltip">
+            <h1>Pure Moonlight</h1>
+            </div>
+            </li>
+            
+            <li id="third" class="thirdanimation">
+            <a href="#">
+            <img src="images/choco7.jpg" alt="Turkish Delight" height="320px"/>
+            </a>
+            <div class="tooltip">
+            <h1>Turkish Delight</h1>
+            </div>
+            </li>
+                        
+            <li id="fourth" class="fourthanimation">
+            <a href="#">
+            <img src="images/choco3.jpg" alt="Hazelnut Swirl" height="320px"/>
+            </a>
+            <div class="tooltip">
+            <h1>Hazelnut Swirl</h1>
+            </div>
+            </li>
+                        
+            <li id="fifth" class="fifthanimation">
+            <a href="#">
+            <img src="images/choco6.jpg" alt="Milk Butter Chews" height="320px"/>
+            </a>
+            <div class="tooltip">
+            <h1>Milk Butter Chews</h1>
+            </div>
+            </li>
+            </ul>
+            </div>
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+	</div>
+	<p>The Bertha's Deluxe Chocolates proudly features the finest selection of chocolate gifts, chocolate gift 
+	baskets, fine Belgium chocolates, truffles and even hard to find gourmet sugar free and diabetic chocolates.
+	Need to send a chocolate gift in a hurry? We can express ship and send your chocolates so your gifts are 
+	delivered right on time!</p>
+	<p>Our goal is your ultimate satisfaction! You will find the finest gourmet chocolate gifts right here. 
+	We offer dark, milk and even white chocolates! Looking for specialty chocolate gifts? We have custom chocolate 
+	gifts that will tempt even chocolate connoisseurs! You will be thrilled with the superior quality of our rich, 
+	gourmet chocolates - guaranteed</p>
+</div>
+	<div id="products_all">
+			<ul>
+			<li id="milk"><a href="#milkdiv">Milk chocolate</a></li>
+			<li id="dark"><a href="#darkdiv">Dark Chocolate</a></li>
+			<li id="nuts"><a href="#nutsdiv">Nuts and Chews</a></li>
+			<li id="brittle"><a href="#brittlesdiv">Brittles and Toffies</a></li>
+			<li id="truffles"><a href="#trufflesdiv">Truffles</a></li>
+			<li id="gifts"><a href="#giftsdiv">Gifts</a></li>
+			<li id="holiday"><a href="#holidaydiv">Holiday Assortments</a></li></ul>
+		<div id="milkdiv">
+			<h3>Discover our delicious creations in each piece</h3>
+			<h3>Choose from our exclusive collection !</h3>
+			<img src="/~jadrn000/PROJ4_IMAGES/3J84P89P3.jpg" alt="" width="220px"/>
+			<img src="/~jadrn000/PROJ4_IMAGES/2M47X93S5.jpg" alt="" width="220px"/>
+			<img src="/~jadrn000/PROJ4_IMAGES/2K35T93T5.jpg" alt="" width="220px"/><br />
+			<hr /><br />
+		</div>
+		<div id="darkdiv"></div>
+		<div id="nutsdiv"></div>
+		<div id="brittlesdiv"></div>
+		<div id="trufflesdiv"></div>
+		<div id="giftsdiv"></div>
+		<div id="holidaydiv"></div>
+		</div>
+	<div id="cart">
+	<fieldset>
+		<legend>Cart items:</legend>
+		<table id="cart_items">	</table>  
+		</fieldset>
+	<input type="button" value="Proceed to Checkout" id="order_button" />	<br />
+	<div id="dialog-modal" class="widget-dialog-container" title="Complete Your Order">
+	<form method="post" action="">    
+	
+	<fieldset>
+		<legend>Billing address :</legend>
+	<table id="billing">	
+        <tr>		
+			<td><label for="fname">First Name:</label></td>
+			<td colspan="2"><input type="text" name="fname" id="fname" size="20"  /></td>
+			<td><label for="lname">Last Name:</label></td>
+			<td colspan="2"><input type="text" name="lname" id="lname" size="20"  /></td>                    
+		</tr>
+		<tr>		
+			<td><label for="address1">Address:</label></td>
+			<td colspan="5"><input type="text" name="address1" id="address1" size="50" /></td>
+		</tr> 
+		<tr>		
+			<td><label for="address2">Address:</label></td>
+			<td colspan="5"><input type="text" name="address2" id="address2" size="50" /></td>
+		</tr>                  
+		<tr>		
+			<td><label for="city">City:</label></td>
+			<td><input type="text" name="city" id="city" size="15" /></td>
+			<td><label for="state">State:</label></td>
+			<td><input type="text" name="state" id="state" size="5" /></td>
+			<td><label for="zip">Zipcode:</label></td>
+			<td><input type="text" name="zip" id="zip" size="10" /></td> 
+			
+		</tr>  
+		<tr>
+			<td>Phone:</td>
+            <td colspan="5">(<input type="text" name="area_phone" id="phone" size="3" maxlength="3" />)  
+                 <input type="text" name="prefix_phone" size="3" maxlength="3" /> -
+                <input type="text" name="phone" size="4" maxlength="4" /></td>
+		</tr> 
+		</table>  
+		</fieldset>
+		<fieldset>
+		<legend>Shipping address:</legend>
+		<table id="shipping">
+        <tr>
+			<td colspan="5"><input type="checkbox" name="check" value="same" />Check this box if shipping address same as billing<br /></td>
+		</tr>	
+		<tr>	
+			<td><label for="sfname">First Name:</label></td>
+			<td colspan="2"><input type="text" name="sfname" id="sfname" size="20"  /></td>
+			<td><label for="slname">Last Name:</label></td>
+			<td colspan="2"><input type="text" name="slname" id="slname" size="20"  /></td>                    
+		</tr>
+		<tr>		
+			<td><label for="saddress1">Address:</label></td>
+			<td colspan="5"><input type="text" name="saddress1" id="saddress1" size="50" /></td>
+		</tr> 
+		<tr>		
+			<td><label for="saddress2">Address:</label></td>
+			<td colspan="5"><input type="text" name="saddress2" id="saddress2" size="50" /></td>
+		</tr>                  
+		<tr>		
+			<td><label for="scity">City:</label></td>
+			<td><input type="text" name="scity" id="scity" size="15" /></td>
+			<td><label for="sstate">State:</label></td>
+			<td><input type="text" name="sstate" id="sstate" size="5" /></td>
+			<td><label for="szip">Zip:</label></td>
+			<td><input type="text" name="szip" id="szip" size="10" /></td>                                        
+		</tr>  
+		<tr>
+			<td><label for="sphone">Phone:</label></td>
+            <td colspan="3">(<input type="text" name="sarea_phone" id="sphone" size="3" maxlength="3" />)  
+                 <input type="text" name="sprefix_phone" size="3" maxlength="3" /> -
+                <input type="text" name="sphone" size="4" maxlength="4" /></td>
+		</tr> 
+		</table>  
+	</fieldset>
+		<fieldset>
+		<legend>Payment information:</legend>
+		<table> 
+		<tr>
+			<td><label for="pay">Payment Type:</label></td>
+            <td colspan="4" ><input type="radio" name="pay" value="visa" id="pay"/>Visa
+				<input type="radio" name="pay" value="mastercard" id="pay"/>Mastercard
+				<input type="radio" name="pay" value="american" id="pay"/>American Express</td>	
+		</tr>		
+		<tr>
+            <td><label for="card">Card Number</label></td>
+            <td><input type="text" name="card" size="16" /></td>
+            <td colspan="2"><label for="exp_date">Expiration Date:</label></td>
+            <td><input type="text" name="exp_date" size="7" />(MM-YYYY)</td>
+        </tr>
+        <tr>
+            <td id="message_line" colspan="5">&nbsp;</td>
+        </tr>         
+        <tr>
+            <td><input type="reset" class="ui-button" value="Reset"/></td>
+            <td><input type="submit" class="ui-button" value="Submit Order"/></td>
+        </tr>       
+    </table> 
+	</fieldset>
+	</form>  
+	</div>
+	</div>
+	<div id="about">
+	<h2>About Us</h2>
+	<p>Bertha's Deluxe Chocolates  offers a large variety of chocolate novelties, custom molded items and seasonal treats. 
+	There are chocolate heart boxes, heart-shaped caramels, Easter bunnies, chocolate Thanksgiving turkeys and 
+	chocolate santas for Christmas. Chocolate champagne bottles, birthday and thank you bars, and chocolate pops 
+	for every occasion make great gifts.</p>
+	<p>Favors for weddings, showers, anniversaries and parties are available. Businesses and organizations may have
+	molds designed to create chocolate bars with their own logo. The possibilities are endless 
+	and the quality unparalleled</p>
+	</div>
+	<div id="contact">
+	<p> We, at Bertha's Deluxe Chocolates, welcome your questions or comments.</p>
+	<p><b>Business Address:</b><br />
+	Bertha's Deluxe Chocolates,<br />
+	1009 Bay Ridge Avenue<br />
+	Suite 141<br />
+	Annapolis, MD 21403<br />
+	<b>Ph: (888) 295-8076</b><br />
+	<b>Email: Berthas@gmail.com</b><br /></p>
+	</div>
+	</div>
+	</div> 
+</body>
+</html>	

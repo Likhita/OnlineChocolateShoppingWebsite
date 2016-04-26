@@ -1,0 +1,325 @@
+(function ($, document, undefined) {
+
+	var pluses = /\+/g;
+
+	function raw(s) {
+		return s;
+	}
+
+	function decoded(s) {
+		return decodeURIComponent(s.replace(pluses, ' '));
+	}
+
+	var config = $.cookie = function (key, value, options) {
+		// write
+		if (value !== undefined) {
+			options = $.extend({}, config.defaults, options);
+
+			if (value === null) {
+				options.expires = -1;
+			}
+
+			if (typeof options.expires === 'number') {
+				var days = options.expires, t = options.expires = new Date();
+				t.setDate(t.getDate() + days);
+			}
+
+			value = config.json ? JSON.stringify(value) : String(value);
+
+			return (document.cookie = [
+				encodeURIComponent(key), '=', config.raw ? value : encodeURIComponent(value),
+				options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
+				options.path    ? '; path=' + options.path : '',
+				options.domain  ? '; domain=' + options.domain : '',
+				options.secure  ? '; secure' : ''
+			].join(''));
+		}
+
+		// read
+		var decode = config.raw ? raw : decoded;
+		var cookies = document.cookie.split('; ');
+		for (var i = 0, l = cookies.length; i < l; i++) {
+			var parts = cookies[i].split('=');
+			if (decode(parts.shift()) === key) {
+				var cookie = decode(parts.join('='));
+				return config.json ? JSON.parse(cookie) : cookie;
+			}
+		}
+
+		return null;
+	};
+
+	config.defaults = {};
+
+	$.removeCookie = function (key, options) {
+		if ($.cookie(key) !== null) {
+			$.cookie(key, null, options);
+			return true;
+		}
+		return false;
+	};
+
+})(jQuery, document);	
+	
+	
+	
+
+     $(function() {
+		var proj4_data;  
+		proj4_data = new Array();
+		var cart = new Object();
+		var req = new HttpRequest('/perl/jadrn052/get_products.cgi', storeData);
+		req.send();        
+    
+    
+    $( "#dialog-modal" ).dialog({
+            height: 700,
+            width: 780,
+            modal: true,
+            autoOpen: false
+    });
+	
+	$( "#dialog-modal-cart" ).dialog({
+            height: 700,
+            width: 780,
+            modal: true,
+            autoOpen: false
+    });
+	
+    
+	$( "#tabs" ).tabs();
+	$( "#product_tabs" ).tabs();
+	$( "#tabsy" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+    $( "#tabsy li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+	
+    $('.order_button').bind('click', function($e) {       
+            $("#dialog-modal").dialog('open');
+            });  
+			
+	$('.cart').bind('click', function($e) {   
+			alert("cart");
+            $("#dialog-modal-cart").dialog('open');
+            }); 		
+	
+	$(".cart").button({
+            icons: {
+                primary: "ui-icon-cart"
+            },
+            text: false
+        })
+		
+	var count=0;
+	var itemlist='|';var temp=0;
+	
+	$('#milk').bind('click', function() {
+        tmpString = "<h1>Milk Chocolate</h1>";
+        for(var i=0; i < proj4_data.length; i++) {
+            if(proj4_data[i][1] == "Milk chocolate") {
+                tmpString += "<img src=\"/~jadrn000/PROJ4_IMAGES/"+proj4_data[i][0]+".jpg\" />";             
+                tmpString += "<h2>"+proj4_data[i][2]+"</h2>";
+				tmpString += proj4_data[i][3]+"<br />";
+				tmpString += "<p>"+proj4_data[i][4]+"</p>";
+				tmpString += "&#36;"+proj4_data[i][5]+"<br /><br /><label for=\"quantity\">Quantity<input type=\"text\"size=\"4\" id=\"quantity\" value=\"0\"/></label>";
+				tmpString +="<button class=\"add\" id=\"add_"+proj4_data[i][0]+"\">Add to cart</button>";
+				tmpString += "<div class=\"clear\"></div><br /><hr />";                
+                }
+            }
+        var handle = document.getElementById('content');
+        handle.innerHTML = tmpString;
+		$('button').bind('click',function($e){
+			var parts = this.id.split('_');
+			var sku = parts[1];
+			$.cookie("example", "hello");
+			alert($.cookie("example"))
+		})
+		
+        })                           
+    
+    $('#dark').bind('click', function() {
+        tmpString = "<h1>Dark Chocolate</h1>";
+        for(var i=0; i < proj4_data.length; i++) {
+            if(proj4_data[i][1] == "Dark chocolate") {
+                tmpString += "<img src=\"/~jadrn000/PROJ4_IMAGES/"+proj4_data[i][0]+".jpg\" />"; 
+                tmpString += "<h2>"+proj4_data[i][2]+"</h2>";
+				tmpString += proj4_data[i][3]+"<br />";
+				tmpString += "<p>"+proj4_data[i][4]+"</p>";
+				tmpString += "&#36;"+proj4_data[i][5]+"<br /><br />";
+				tmpString +="<button class=\"cart\">Add to cart</button>";		
+				tmpString += "<div class=\"clear\"></div><br /><hr />";                 
+                }
+            }
+        var handle = document.getElementById('content');
+        handle.innerHTML = tmpString;
+        })
+        
+    $('#nuts').bind('click', function() {
+        tmpString = "<h1>Nuts and chews</h1>";
+        for(var i=0; i < proj4_data.length; i++) {
+            if(proj4_data[i][1] == "Nuts and chews") {
+                tmpString += "<img src=\"/~jadrn000/PROJ4_IMAGES/"+proj4_data[i][0]+".jpg\" />";                
+                tmpString += "<h2>"+proj4_data[i][2]+"</h2>";
+				tmpString += proj4_data[i][3]+"<br />";
+				tmpString += "<p>"+proj4_data[i][4]+"</p>";
+				tmpString += "&#36;"+proj4_data[i][5]+"<br /><br />";
+				tmpString +="<button class=\"cart\">Add to cart</button>";	
+            tmpString += "<div class=\"clear\"></div><br /><hr />";                
+                }
+            }
+        var handle = document.getElementById('content');
+        handle.innerHTML = tmpString;
+        }) 
+        
+    $('#brittle').bind('click', function() {
+        tmpString = "<h1>Brittles and Toffies</h1>";
+        for(var i=0; i < proj4_data.length; i++) {
+            if(proj4_data[i][1] == "Brittles and toffies") {
+                tmpString += "<img src=\"/~jadrn000/PROJ4_IMAGES/"+proj4_data[i][0]+".jpg\" />"; 
+                tmpString += "<h2>"+proj4_data[i][2]+"</h2>";
+				tmpString += proj4_data[i][3]+"<br />";
+				tmpString += "<p>"+proj4_data[i][4]+"</p>";
+				tmpString += "&#36;"+proj4_data[i][5]+"<br /><br />";
+				tmpString +="<button class=\"cart\">Add to cart</button>";	
+            tmpString += "<div class=\"clear\"></div><br /><hr />";                
+                }
+            }
+        var handle = document.getElementById('content');
+        handle.innerHTML = tmpString;
+        })   
+			
+	$('#truffles').bind('click', function() {
+        tmpString = "<h1>Truffles</h1>";
+        for(var i=0; i < proj4_data.length; i++) {
+            if(proj4_data[i][1] == "Truffles") {
+                tmpString += "<img src=\"/~jadrn000/PROJ4_IMAGES/"+proj4_data[i][0]+".jpg\" />"; 
+                tmpString += "<h2>"+proj4_data[i][2]+"</h2>";
+				tmpString += proj4_data[i][3]+"<br />";
+				tmpString += "<p>"+proj4_data[i][4]+"</p>";
+				tmpString += "&#36;"+proj4_data[i][5]+"<br /><br />";
+				tmpString +="<button class=\"cart\">Add to cart</button>";	
+            tmpString += "<div class=\"clear\"></div><br /><hr />";                
+                }
+            }
+        var handle = document.getElementById('content');
+        handle.innerHTML = tmpString;
+        })                
+
+	$('#gifts').bind('click', function() {
+        tmpString = "<h1>Gifts</h1>";
+        for(var i=0; i < proj4_data.length; i++) {
+            if(proj4_data[i][1] == "Gifts") {
+                tmpString += "<img src=\"/~jadrn000/PROJ4_IMAGES/"+proj4_data[i][0]+".jpg\" />"; 
+                tmpString += "<h2>"+proj4_data[i][2]+"</h2>";
+				tmpString += proj4_data[i][3]+"<br />";
+				tmpString += "<p>"+proj4_data[i][4]+"</p>";
+				tmpString += "&#36;"+proj4_data[i][5]+"<br /><br />";
+				tmpString +="<button class=\"cart\">Add to cart</button>";	
+            tmpString += "<div class=\"clear\"></div><br /><hr />";                
+                }
+            }
+        var handle = document.getElementById('content');
+        handle.innerHTML = tmpString;
+        })                
+		
+	$('#holiday').bind('click', function() {
+        tmpString = "<h1>Holiday Assortments</h1>";
+        for(var i=0; i < proj4_data.length; i++) {
+            if(proj4_data[i][1] == "Holiday assortments") {
+                tmpString += "<img src=\"/~jadrn000/PROJ4_IMAGES/"+proj4_data[i][0]+".jpg\" />"; 
+                tmpString += "<h2>"+proj4_data[i][2]+"</h2>";
+				tmpString += proj4_data[i][3]+"<br />";
+				tmpString += "<p>"+proj4_data[i][4]+"</p>";
+				tmpString += "&#36;"+proj4_data[i][5]+"<br /><br />";
+				tmpString +="<button class=\"cart\">Add to cart</button>";	
+            tmpString += "<div class=\"clear\"></div><br /><hr />";                
+                }
+            }
+        var handle = document.getElementById('content');
+        handle.innerHTML = tmpString;
+		
+        }) 
+	
+	$('.add').on('click', function(e) {
+			var parts = this.id.split('_');
+			if (parts.length != 2)
+			{
+				return;
+			}
+			var sku = parts[1];
+			document.cookie='sku'+'='+sku;
+			alert(document.cookie);
+			var sku = $(this).attr('class').substring(3);  
+			if (typeof cart[sku] === "undefined") {
+				cart[sku] = 0;
+			 }
+			 cart[sku] += 1;
+			 refreshCart();
+		  });	
+		
+	function gethandlers(){
+		for (var p = 0; p < proj4_data.length; p++ ) {
+			var sku = proj4_data[p][0];
+			$('.add ,#id_'+proj4_data[p][0]).on('click', function(e) {
+			var parts = this.id.split('_');
+			if (parts.length != 2)
+			{
+				return;
+			}
+			var sku = parts[1];
+			if (typeof cart[sku] === "undefined") {
+				cart[sku] = 0;
+			 }
+			cart[sku] += 1;
+			$('#cart_contains').html('Cart (' + cart[sku] + ')');
+			alert("cart"+cart[sku]); 
+			//itemlist=itemlist+'|'+'sku'+'='+sku+','+cart[sku];
+			//document.cookie=itemlist;
+			alert(document.cookie);
+			//$.cookie("example");
+			//alert($.cookie("example"));
+			return refreshCart();
+		  });	
+	
+	}
+	}
+	
+	function refreshCart() {
+   
+	   // Set the value of the cart indicator in the top-right corner
+	   var count = 0;
+	   for(var sku in cart) {
+		  count += cart[sku];
+	   }
+	   $('#cartlink').html('Cart (' + count + ')');
+	   return false;
+	   
+	}
+            
+                   		
+	
+
+	function storeData(response) {
+		var tmpArray = explodeArray(response,';');
+		for(var i=0; i < tmpArray.length; i++) {
+			innerArray = explodeArray(tmpArray[i],'|');
+			proj4_data[i] = innerArray;
+			}
+		}
+           
+    
+    
+// from http://www.webmasterworld.com/forum91/3262.htm            
+	function explodeArray(item,delimiter) {
+		tempArray=new Array(1);
+		var Count=0;
+		var tempString=new String(item);
+
+		while (tempString.indexOf(delimiter)>0) {
+		tempArray[Count]=tempString.substr(0,tempString.indexOf(delimiter));
+		tempString=tempString.substr(tempString.indexOf(delimiter)+1,tempString.length-tempString.indexOf(delimiter)+1);
+		Count=Count+1
+		}
+		tempArray[Count]=tempString;
+		return tempArray;
+	}     
+}
+);

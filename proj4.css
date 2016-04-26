@@ -1,0 +1,72 @@
+#container{
+	background-image:url(images/texture1.jpg);	
+	margin:0;
+	padding-top:20px;
+	padding-bottom:20px;
+	min-height:100%;
+	}
+		
+#menus li{
+	margin-left:-2px;
+	}
+	
+#message_line {
+    color: red;
+	font-weight:bold;
+    font-family: 'Oxygen Mono', sans-serif;
+    padding-left: 50px;
+    padding-top: 5px;
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+
+#cart_items{
+	border-collapse:collapse;
+	
+	margin:auto;
+	border: 2px solid black;
+}
+#billing th,td{
+	text-align:left;
+} 
+#shipping th,td{
+	text-align:left;
+} 
+
+#cart_items td{
+	text-align:center;
+	padding:2px 10px 2px 10px;
+} 
+input:focus { 
+	border: 1px solid blue;
+	}
+.error { 
+	color: red; 
+	}
+
+.displayerror {
+    border: 1px solid red;
+    } 	
+	
+#homepage{
+	text-decoration:none;
+	font-weight:bold;
+	background-color:white;
+	padding:5px 10px 5px 10px;
+	border:2px solid #33336F;
+	font-family: 'Oxygen Mono', sans-serif;
+	float:right;
+	margin-right:40px;
+	}	
+	
+#homepage a:hover{
+	color:white;
+	background-color:#33336F;
+	border:2px solid #33336F;
+	}	
+	
+#homepage a:active{
+	color:red;
+	}		
+	
